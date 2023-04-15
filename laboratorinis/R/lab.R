@@ -1,7 +1,7 @@
 library(readr)
 library(tidyverse)
 getwd()
-data = read.csv("C:/Users/vilke/Downloads/lab_sodra.csv")
+data = read_csv("../data/lab_sodra.csv")
 summary(data)
 #1 uzduotis
 new_data = dplyr::filter(data, ecoActCode == 479100)
@@ -13,14 +13,14 @@ ggtitle("Vidutinis atlyginimas") + xlab("avgWage") +  scale_x_continuous(labels 
 #2 uzduotis
 #Atrenkam menesius
 # 5 imoniu parinkimas
-top5 <- new_data %>%
+top5 = new_data %>%
   group_by(name) %>%
   summarize(avgWage = mean(avgWage)) %>%
   top_n(5, avgWage) %>%
   pull(name)
 
 # Filtravimas
-new_data2 <- new_data %>%
+new_data2 = new_data %>%
   filter(name %in% top5) %>%
   mutate(month_value = as.integer(substr(month, 5, 7)))
 
@@ -32,7 +32,7 @@ ggplot(new_data2, aes(x = month_value, y = avgWage, group = name, colour = name)
   labs(title = "Vidutinis darbo uzmokestis", y = "avgWage")
 #3
 # Darbuotoju parinkimas
-top5 <- new_data2 %>%
+top5 = new_data2 %>%
   group_by(name) %>%
   summarize(numInsured = sum(numInsured)) %>%
   top_n(5, numInsured)
