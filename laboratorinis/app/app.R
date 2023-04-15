@@ -2,7 +2,7 @@ library(shiny)
 library(shinydashboard)
 library(tidyverse)
 
-data = read.csv("C:/Users/vilke/Downloads/lab_sodra.csv")
+data = read_csv("../data/lab_sodra.csv")
 
 new_data = data %>%
   filter(ecoActCode == 479100) %>%
