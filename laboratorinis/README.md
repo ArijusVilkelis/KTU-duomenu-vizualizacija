@@ -26,7 +26,7 @@ Išvados:
 
 Atsakymas:
 
-![apdraustieji](img/vidutinis_atlyginimas.png)
+![apdraustieji](img/vidutinis_darbo_uzmokestis.png)
 
 Išvados:
 
